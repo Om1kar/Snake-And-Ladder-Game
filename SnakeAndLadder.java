@@ -5,7 +5,8 @@ package SnakeAndLadder;
  */
 public class SnakeAndLadder {
     /**
-     * @param -UC5-Ensure the player gets to exact winning position 100.
+     * @param -UC6-Report the number of times the dice was
+     * played to win the game and also the position after every die role
      */
     public static final int NO_PLAY = 1;
     public static final int SNAKE = 2;
@@ -17,12 +18,15 @@ public class SnakeAndLadder {
         System.out.println("------------------------------------");
 
         int playerPosition = 0;
+        int diceRolls = 0;//to count no of times dice rolls
         System.out.println("player at Position =" + playerPosition);
 
         while (playerPosition != 100) {
+            playerPosition++;
 
-            int rollDice = (int) Math.floor(Math.random() * 10) % 6 + 1;
+            int rollDice = (int) Math.floor(Math.random() * 10) % 6 + 1;//to get number
             System.out.println("After Dice Rolls player gets =" + rollDice);
+            diceRolls++;
 
             int options = (int) Math.floor(Math.random() * 10) % 3 + 1;
             System.out.println("player checks for options =" + options);
@@ -55,10 +59,12 @@ public class SnakeAndLadder {
                     System.out.println("Player Wants to Quit The Game");
             }
         }
+        System.out.println("Player Roll a Dice "+diceRolls+" Times");
         if (playerPosition >= 100) {
             System.out.println("======================================================");
             System.out.println("                PLAYER WON THE GAME                   ");
             System.out.println("======================================================");
+            System.out.println();
         }
     }
 
