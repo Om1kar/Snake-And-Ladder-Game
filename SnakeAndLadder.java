@@ -5,8 +5,9 @@ package SnakeAndLadder;
  */
 public class SnakeAndLadder {
     /**
-     * @param -UC3 The Player then checks for options
-     * no play ,ladder and snake.
+     * @param -UC4-Repeat till the Player
+     * reaches the winning position 100.
+     *
      */
     public static final int NO_PLAY = 1;
     public static final int Snake = 2;
@@ -18,28 +19,37 @@ public class SnakeAndLadder {
         System.out.println("------------------------------------");
         int playerPosition = 0;
         System.out.println("player at Position =" + playerPosition);
+        while (playerPosition <=100) {
+            int rollDice = (int) Math.floor(Math.random() * 10) % 6 + 1;
+            System.out.println("After Dice Rolls players Position =" + rollDice);
 
-        int rollDice = (int) Math.floor(Math.random() * 10) % 6 + 1;
-        System.out.println("After Dice Rolls players Position =" + rollDice);
+            int options = (int) Math.floor(Math.random() * 10) % 3 + 1;
+            System.out.println("player checks for options =" + options);
 
-        int options = (int) Math.floor(Math.random() * 10) % 3 + 1;
-        System.out.println("player checks for options =" + options);
-
-        switch (options) {
-            case NO_PLAY:
-                System.out.println("players position =" + rollDice);
-                break;
-            case Snake:
-                playerPosition = playerPosition - rollDice;
-                System.out.println("Player Got Snake and need to go back by "+playerPosition+ " Steps");
-                break;
-            case Ladder:
-                playerPosition = playerPosition + (rollDice * 2);
-                System.out.println("Player got Ladder");
-                System.out.println("New position after getting Ladder = "+playerPosition);
-                break;
-            default:
-                System.out.println("Player Wants to Quit The Game");
+            switch (options) {
+                case NO_PLAY:
+                    System.out.println("players position =" + rollDice);
+                    break;
+                case Snake:
+                    playerPosition = playerPosition - rollDice;
+                    System.out.println("Player Got Snake and need to go back by " + playerPosition + " Steps");
+                    break;
+                case Ladder:
+                    playerPosition = playerPosition + (rollDice * 2);
+                    System.out.println("Player got Ladder");
+                    System.out.println("New position after getting Ladder = " + playerPosition);
+                    break;
+                default:
+                    System.out.println("Player Wants to Quit The Game");
+            }
+        }
+        if (playerPosition>=100){
+            System.out.println("======================================================");
+            System.out.println("                PLAYER WON THE GAME                   ");
+            System.out.println("======================================================");
+        }
+        else {
+            System.out.println("Roll Die Again");
         }
     }
 
